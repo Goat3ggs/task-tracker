@@ -13,11 +13,11 @@ Extra
 - Dark Mode
 
 Tickets:
-#1 - Renderizare UI statica:
+#1 - Renderizare UI statica (Done):
 
 - input
 - button Add
-- losta goala
+- lista goala
 
 #2 - Adaugare task:
 

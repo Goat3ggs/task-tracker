@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Task Tracker</title>
+  </head>
+  <body>
+    <main class="container">
+      <!-- Later Implementation
+        <nav class="sidebar">
+        <h1>Task Tracker</h1>
+        <ul class="list">
+          <li class="list__item">
+            <a href="#" class="list__link">Dashboard</a>
+          </li>
+        </ul>
+      </nav> -->
+      <header class="header">
+        <h1 class="header__title">Task Tracker</h1>
+      </header>
+      <section class="content">
+        <form class="task-form">
+          <input
+            class="task-form__input"
+            type="text"
+            placeholder="Today Task"
+          />
+          <button class="task-form__button" type="submit">Add</button>
+        </form>
+
+        <ul class="task-list">
+          <li class="task">Learn JS</li>
+          <!-- will be showned a <li class="task"></li> -->
+        </ul>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

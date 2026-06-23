@@ -1,0 +1,79 @@
+@import "variables.css";
+
+body {
+  background-color: #f5f7fb;
+}
+
+.container {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+}
+
+.header__title {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.content {
+  width: min(500px, 90vw);
+
+  padding: 1.5rem;
+
+  background: white;
+  border-radius: 16px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.task-form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.task-form__input {
+  flex: 1;
+
+  padding: 0.75rem 1rem;
+
+  border: 1px solid #dcdcdc;
+  border-radius: 999px;
+}
+
+.task-form__input:focus {
+  outline: 2px solid rgb(3, 117, 151);
+}
+
+.task-form__button {
+  border: none;
+  border-radius: 999px;
+
+  padding: 0.75rem 1.25rem;
+
+  cursor: pointer;
+
+  background-color: rgb(3, 117, 151);
+
+  color: white;
+  font-weight: 600;
+}
+
+.task-list {
+  margin-top: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task {
+  padding: 0.75rem 1rem;
+
+  background-color: #f1f3f5;
+  border-radius: 12px;
+}
