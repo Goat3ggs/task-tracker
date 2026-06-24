@@ -18,6 +18,7 @@ const addTask = () => {
 
   tasks.push(task);
   renderTask(task); // doar unul nou
+  saveTasks();
 };
 
 const renderTask = (task) => {
@@ -33,6 +34,7 @@ const renderTask = (task) => {
             type="checkbox"
             class="toggle-complete"
             data-task-id="${task.id}"
+            ${task.completed ? "checked" : ""}
         >
         <div class="checkmark"></div>
       </label>
@@ -40,6 +42,7 @@ const renderTask = (task) => {
     </div>
   `;
 
+  li.classList.toggle("task--completed", task.completed);
   taskList.appendChild(li);
   taskElements.set(task.id, li);
 };
@@ -47,6 +50,7 @@ const renderTask = (task) => {
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   addTask();
+
   input.value = "";
 });
 
@@ -59,6 +63,7 @@ const deleteTask = (event) => {
 
   // 1. scoți din array
   tasks = tasks.filter((task) => task.id !== taskId);
+  saveTasks();
 
   // 2. scoți din DOM direct
   const element = taskElements.get(taskId);
@@ -79,13 +84,35 @@ const toggleComplete = (event) => {
   if (!task) return;
 
   task.completed = checkbox.checked;
+  saveTasks();
   const element = taskElements.get(taskId);
   if (!element) return;
 
   element.classList.toggle("task--completed", task.completed);
 };
 
+const saveTasks = () => {
+  const myJSON = JSON.stringify(tasks);
+  localStorage.setItem("testJSON", myJSON);
+};
+
+const loadTasks = () => {
+  let text = localStorage.getItem("testJSON");
+
+  if (!text) return;
+
+  let loadedTasks = JSON.parse(text);
+  console.log("tasks incarcate:", loadedTasks);
+
+  loadedTasks.forEach((task) => {
+    tasks.push(task);
+    renderTask(task);
+  });
+};
+
 taskList.addEventListener("click", (event) => {
   deleteTask(event);
   toggleComplete(event);
 });
+
+loadTasks();
