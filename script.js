@@ -1,6 +1,7 @@
 const form = document.querySelector(".task-form");
 const input = document.querySelector(".task-form__input");
 const taskList = document.querySelector(".task-list");
+const filtersContainer = document.querySelector(".filters");
 
 let tasks = [];
 const taskElements = new Map();
@@ -24,7 +25,7 @@ const addTask = () => {
 const renderTask = (task) => {
   const li = document.createElement("li");
   li.className = "task";
-  li.id = task.id;
+  li.dataset.taskId = task.id;
 
   li.innerHTML = `
     <span>${task.title}</span>
@@ -45,6 +46,14 @@ const renderTask = (task) => {
   li.classList.toggle("task--completed", task.completed);
   taskList.appendChild(li);
   taskElements.set(task.id, li);
+};
+
+const renderTasks = (tasksToRender) => {
+  taskList.innerHTML = "";
+
+  tasksToRender.forEach((task) => {
+    renderTask(task);
+  });
 };
 
 form.addEventListener("submit", (event) => {
@@ -92,23 +101,43 @@ const toggleComplete = (event) => {
 };
 
 const saveTasks = () => {
-  const myJSON = JSON.stringify(tasks);
-  localStorage.setItem("testJSON", myJSON);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
 };
 
 const loadTasks = () => {
-  let text = localStorage.getItem("testJSON");
+  let text = localStorage.getItem("tasks");
 
   if (!text) return;
 
   let loadedTasks = JSON.parse(text);
-  console.log("tasks incarcate:", loadedTasks);
 
   loadedTasks.forEach((task) => {
     tasks.push(task);
     renderTask(task);
   });
 };
+
+filtersContainer.addEventListener("click", (event) => {
+  const clickedBtn = event.target.closest("button");
+
+  if (!clickedBtn) return;
+
+  const filterType = clickedBtn.dataset.filter;
+
+  const allTasks = tasks;
+  const activeTasks = tasks.filter((task) => !task.completed);
+  const completedTasks = tasks.filter((task) => task.completed);
+
+  if (filterType === "completed") {
+    renderTasks(completedTasks);
+  } else if (filterType === "active") {
+    renderTasks(activeTasks);
+  } else if (filterType === "all") {
+    renderTasks(allTasks);
+  }
+
+  console.log(filterType);
+});
 
 taskList.addEventListener("click", (event) => {
   deleteTask(event);

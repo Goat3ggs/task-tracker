@@ -2,6 +2,7 @@
 
 body {
   background-color: #f5f7fb;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
@@ -38,9 +39,7 @@ body {
 
 .task-form__input {
   flex: 1;
-
   padding: 0.75rem 1rem;
-
   border: 1px solid #dcdcdc;
   border-radius: 999px;
 }
@@ -54,13 +53,14 @@ body {
   border-radius: 999px;
 
   padding: 0.75rem 1.25rem;
-
   cursor: pointer;
-
   background-color: rgb(3, 117, 151);
-
   color: white;
   font-weight: 600;
+}
+
+.task-form__button:hover {
+  background-color: rgb(6, 151, 196);
 }
 
 .task-list {
@@ -174,4 +174,22 @@ body {
 .task--completed {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+.filters {
+  min-width: 500px;
+}
+
+.filters__btn {
+  font-size: 13px;
+  padding: 0.6rem 0.8rem;
+  background: white;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.filters__btn:hover,
+.filters__btn:focus {
+  background: rgb(211, 211, 211);
 }
