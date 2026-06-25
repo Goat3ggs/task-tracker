@@ -129,7 +129,7 @@ body {
   display: block;
 }
 
-.delete-btn {
+.task-button {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -146,23 +146,40 @@ body {
   position: relative;
 }
 
-.svgIcon {
+.svgIcon--delete {
   width: 12px;
   transition-duration: 0.3s;
 }
 
-.svgIcon path {
+.svgIcon--edit {
+  width: 20px;
+  transition-duration: 0.3s;
+}
+
+.svgIcon--delete path {
   fill: white;
 }
 
-.delete-btn:hover {
+.button--delete:hover {
   transition-duration: 0.3s;
   background-color: rgb(255, 69, 69);
   align-items: center;
 }
 
-.delete-btn:hover .svgIcon {
+.button--edit:hover {
+  transition-duration: 0.3s;
+  background-color: rgb(62, 146, 51);
+  align-items: center;
+}
+
+.button--delete:hover .svgIcon--delete {
   width: 20px;
+  transition-duration: 0.3s;
+  transform: translateY(5%);
+}
+
+.button--edit:hover .svgIcon--edit {
+  width: 25px;
   transition-duration: 0.3s;
   transform: translateY(5%);
 }
