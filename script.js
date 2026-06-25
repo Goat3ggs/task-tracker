@@ -2,9 +2,20 @@ const form = document.querySelector(".task-form");
 const input = document.querySelector(".task-form__input");
 const taskList = document.querySelector(".task-list");
 const filtersContainer = document.querySelector(".filters");
+const searchInput = document.querySelector("[data-search]");
 
 let tasks = [];
 const taskElements = new Map();
+
+searchInput.addEventListener("input", (event) => {
+  const value = event.target.value.toLowerCase();
+
+  const filtered = tasks.filter((task) =>
+    task.title.toLowerCase().includes(value),
+  );
+
+  renderTasks(filtered);
+});
 
 const addTask = () => {
   const inputValue = input.value.trim();
@@ -135,8 +146,6 @@ filtersContainer.addEventListener("click", (event) => {
   } else if (filterType === "all") {
     renderTasks(allTasks);
   }
-
-  console.log(filterType);
 });
 
 taskList.addEventListener("click", (event) => {
