@@ -6,7 +6,7 @@ Task Tracker is an application that lets you create, organize, and follow your t
 
 [Live Demo](https://goat3ggs.github.io/task-tracker/)
 
-##Screenshot
+## Screenshot
 
 ![Task Tracker Screenshot](demo-screenshot.png)
 
