@@ -42,4 +42,4 @@ Tickets:
 - Active
 - Completed
 
-#7 - Search Tasks:
+#7 - Search Tasks (Done):
