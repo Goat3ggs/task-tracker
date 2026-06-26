@@ -18,6 +18,8 @@
 }
 
 body {
+  background-color: #f5f7fb;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   /* 4. Increase line-height */
   line-height: 1.5;
   /* 5. Improve text rendering */
