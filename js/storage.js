@@ -7,7 +7,7 @@ export const saveTasks = (tasks) => {
 export const loadTasks = () => {
   let savedTasks = localStorage.getItem(STORAGE_KEY);
 
-  if (!savedTasks) return;
+  if (!savedTasks) return [];
 
   return JSON.parse(savedTasks);
 };
